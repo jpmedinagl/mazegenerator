@@ -11,6 +11,22 @@ public class Maze {
         this.maze = new int[rows][columns];
     }
 
+    public int getRows() {
+        return rows;
+    }
+
+    public int getColumns() {
+        return columns;
+    }
+
+    public int getCell(int row, int column) {
+        return maze[row][column];
+    }
+
+    public void setCell(int row, int column, int value) {
+        maze[row][column] = value;
+    }
+
     public void generateMaze() {
         Random random = new Random();
 

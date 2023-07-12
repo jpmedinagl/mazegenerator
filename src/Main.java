@@ -6,8 +6,7 @@ public class Main {
         int columns = 20;
 
         Maze maze = new Maze(rows, columns);
-        Generator generator = new Generator(maze);
-        generator.generateMaze();
+        maze.generateMaze();
         maze.printMaze();
     }
 }
