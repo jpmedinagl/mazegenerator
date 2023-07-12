@@ -12,8 +12,10 @@ public class DFSGenerator implements Generator {
             }
         }
 
-        int startRow = getRandomNumber(maze.getRows());
-        int startColumn = getRandomNumber(maze.getColumns());
+        // int startRow = getRandomNumber(maze.getRows());
+        // int startColumn = getRandomNumber(maze.getColumns());
+        int startRow = 1;
+        int startColumn = 0;
 
         generateMazeRecursive(maze, startRow, startColumn);
 

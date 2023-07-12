@@ -7,8 +7,9 @@ public class Main {
         int rows = 20;
         int columns = 20;
 
-        Maze maze = new Maze(rows, columns);
-        maze.generateMaze();
-        maze.printMaze();
+        // Maze maze = new Maze(rows, columns);
+        MazeFacade manager = new MazeFacade(rows, columns);
+        manager.generateMaze();
+        manager.printMaze();
     }
 }
