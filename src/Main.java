@@ -9,7 +9,6 @@ public class Main {
 
         Maze maze = new Maze(rows, columns);
         maze.generateMaze();
-
         maze.printMaze();
     }
 }

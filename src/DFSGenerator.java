@@ -1,13 +1,8 @@
 import java.util.Random;
 
-public class DFSGenerator implements Generator{
-    private final Maze maze;
+public class DFSGenerator implements Generator {
 
-    public DFSGenerator(Maze maze) {
-        this.maze = maze;
-    }
-
-    public void generateMaze() {
+    public void generateMaze(Maze maze) {
         int rows = maze.getRows();
         int columns = maze.getColumns();
 
@@ -20,14 +15,14 @@ public class DFSGenerator implements Generator{
         int startRow = getRandomNumber(maze.getRows());
         int startColumn = getRandomNumber(maze.getColumns());
 
-        generateMazeRecursive(startRow, startColumn);
+        generateMazeRecursive(maze, startRow, startColumn);
 
         // Set start and end points
         maze.setCell(startRow, startColumn, 2); // 2 represents the start point
         maze.setCell(maze.getRows() - 1, maze.getColumns() - 1, 3); // 3 represents the end point
     }
 
-    private void generateMazeRecursive(int row, int col) {
+    private void generateMazeRecursive(Maze maze, int row, int col) {
         int[] directions = { 1, 2, 3, 4 }; // 1: up, 2: right, 3: down, 4: left
         shuffleArray(directions);
 
@@ -58,7 +53,7 @@ public class DFSGenerator implements Generator{
                     maze.setCell(row, col - 1, 0);
                 }
 
-                generateMazeRecursive(newRow, newCol);
+                generateMazeRecursive(maze, newRow, newCol);
             }
         }
     }

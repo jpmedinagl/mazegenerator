@@ -10,11 +10,11 @@ public class Maze implements Iterable<int[]> {
         this.rows = rows;
         this.columns = columns;
         this.maze = new int[rows][columns];
-        this.generator = new DFSGenerator(this);
+        this.generator = new DFSGenerator();
     }
 
     public void generateMaze() {
-        generator.generateMaze();
+        generator.generateMaze(this);
     }
 
     public int getRows() {
