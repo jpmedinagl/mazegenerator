@@ -1,19 +1,23 @@
 public class MazePrinter implements Printer {
 
-    public void printMaze(Maze maze) {
+    public String printMaze(Maze maze) {
+        StringBuilder mazeRep = new StringBuilder();
+
         for (int[] row : maze) {
             for (int cell : row) {
                 if (cell == 1) {
-                    System.out.print("# "); // Wall
+                    mazeRep.append("# "); // Wall
                 } else if (cell == 2) {
-                    System.out.print("S "); // Start
+                    mazeRep.append("S "); // Start
                 } else if (cell == 3) {
-                    System.out.print("E "); // End
+                    mazeRep.append("E "); // End
                 } else {
-                    System.out.print("  "); // Path
+                    mazeRep.append("  "); // Path
                 }
             }
-            System.out.println();
+            mazeRep.append("\n");
         }
+
+        return mazeRep.toString();
     }
 }

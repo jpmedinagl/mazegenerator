@@ -1,3 +1,3 @@
 public interface Printer {
-    public void printMaze(Maze maze);
+    public String printMaze(Maze maze);
 }

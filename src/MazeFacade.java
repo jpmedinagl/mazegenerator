@@ -14,7 +14,7 @@ public class MazeFacade {
         generator.generateMaze(maze);
     }
 
-    public void printMaze() {
-        printer.printMaze(maze);
+    public String printMaze() {
+        return printer.printMaze(maze);
     }
 }
