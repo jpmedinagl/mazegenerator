@@ -10,6 +10,6 @@ public class Main {
         // Maze maze = new Maze(rows, columns);
         MazeFacade manager = new MazeFacade(rows, columns);
         manager.generateMaze();
-        manager.printMaze();
+        System.out.println(manager.printMaze());
     }
 }
