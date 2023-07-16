@@ -1,3 +1,5 @@
+package entities;
+
 import java.util.Iterator;
 
 public class MazeIterator implements Iterator<int[]> {

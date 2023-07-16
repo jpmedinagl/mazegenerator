@@ -1,3 +1,5 @@
+package entities;
+
 public class MazePrinter implements Printer {
 
     public String printMaze(Maze maze) {
