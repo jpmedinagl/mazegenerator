@@ -21,6 +21,10 @@ public class Maze implements Iterable<int[]> {
         return columns;
     }
 
+    public int[][] getMaze() {
+        return this.maze;
+    }
+
     public int[] getRow(int row) {
         return maze[row];
     }
