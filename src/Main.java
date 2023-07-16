@@ -1,12 +1,12 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import entities.MazeFacade;
+
 public class Main {
     public static void main(String[] args) {
         int rows = 20;
         int columns = 20;
 
-        Maze maze = new Maze(rows, columns);
-        maze.generateMaze();
-        maze.printMaze();
+        MazeFacade manager = new MazeFacade(rows, columns);
+        manager.generateMaze();
+        System.out.println(manager.printMaze());
     }
 }
