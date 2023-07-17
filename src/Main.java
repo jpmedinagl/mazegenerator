@@ -1,12 +1,17 @@
-import entities.MazeFacade;
+import entities.MazeFactory;
+import generate_maze_use_case.MazeGeneratorInteractor;
+import interface_adapters.MazeGeneratorController;
+import interface_adapters.MazeGeneratorScreen;
+import interface_adapters.MazePresenter;
 
 public class Main {
     public static void main(String[] args) {
-        int rows = 20;
-        int columns = 20;
+        MazeFactory mazeFactory = new MazeFactory();
+        MazePresenter mazePresenter = new MazePresenter();
+        MazeGeneratorInteractor generatorInteractor = new MazeGeneratorInteractor(mazePresenter, mazeFactory);
+        MazeGeneratorController generatorController = new MazeGeneratorController(generatorInteractor);
+        MazeGeneratorScreen generatorScreen = new MazeGeneratorScreen(generatorController);
 
-        MazeFacade manager = new MazeFacade(rows, columns);
-        manager.generateMaze();
-        System.out.println(manager.printMaze());
+        generatorScreen.renderScreen();
     }
 }
