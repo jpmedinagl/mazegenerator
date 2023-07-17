@@ -9,8 +9,11 @@ public class MazePresenter implements MazeGeneratorOutputBoundary {
     public MazeGeneratorResponseModel prepareSuccessView(MazeRepresentation mazeRepresentation) {
         StringBuilder mazeRep = new StringBuilder();
 
+//        mazeRep.append("# ".repeat(mazeRepresentation.getMaze().length + 2));
+//        mazeRep.append("\n");
 
         for (int[] row : mazeRepresentation.getMaze()) {
+//            mazeRep.append("# ");
             for (int cell : row) {
                 if (cell == 1) {
                     mazeRep.append("# "); // Wall
@@ -22,8 +25,10 @@ public class MazePresenter implements MazeGeneratorOutputBoundary {
                     mazeRep.append("  "); // Path
                 }
             }
+//            mazeRep.append("# ");
             mazeRep.append("\n");
         }
+//        mazeRep.append("# ".repeat(mazeRepresentation.getMaze().length + 2));
 
         return new MazeGeneratorResponseModel(mazeRep.toString());
     }

@@ -9,7 +9,7 @@ public class MazeGeneratorScreen {
         this.mazeGeneratorController = controller;
     }
 
-    public void start() {
+    public void renderScreen() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter rows: ");
         int rows = input.nextInt();
@@ -18,9 +18,8 @@ public class MazeGeneratorScreen {
         input.close();
 
         try {
-            System.out.println("\nGenerated Maze");
             System.out.println(mazeGeneratorController.generateMaze(rows, columns).getMaze());
-        } catch (Exception e) {
+        } catch(MazeGenerationFailed e) {
             System.out.println(e.getMessage());
         }
     }
