@@ -3,8 +3,11 @@ package usecases.generateMazeUseCase;
 import entities.MazeFacade;
 import entities.MazeFactory;
 
+/**
+ * Interactor that is responsible for executing the use case. If the inputs are valid it creates
+ * a mazeManager that generates the Maze.
+ */
 public class MazeGeneratorInteractor implements MazeGeneratorInputBoundary{
-
     private final MazeGeneratorOutputBoundary mazePresenter;
     private final MazeFactory mazeFactory;
 
