@@ -9,6 +9,7 @@ import usecases.generateMazeUseCase.MazeRepresentation;
  * to present this to the user. Throws a MazeGenerationFailed if there is invalid input.
  */
 public class MazePresenter implements MazeGeneratorOutputBoundary {
+
     @Override
     public MazeGeneratorResponseModel prepareSuccessView(MazeRepresentation mazeRepresentation) {
         StringBuilder mazeRep = new StringBuilder();

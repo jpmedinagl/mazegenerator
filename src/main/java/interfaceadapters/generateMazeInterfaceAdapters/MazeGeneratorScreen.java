@@ -9,7 +9,6 @@ import java.util.Scanner;
  * inputs for rows and columns and calls the appropriate controller to run the use case.
  */
 public class MazeGeneratorScreen {
-
     private final MazeGeneratorController mazeGeneratorController;
 
     public MazeGeneratorScreen(MazeGeneratorController controller) {
