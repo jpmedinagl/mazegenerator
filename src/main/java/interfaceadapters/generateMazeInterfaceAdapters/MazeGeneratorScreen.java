@@ -2,10 +2,13 @@ package interfaceadapters.generateMazeInterfaceAdapters;
 
 import usecases.generateMazeUseCase.MazeGeneratorResponseModel;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
-public class MazeGeneratorScreen {
 
+/**
+ * Screen that handles the user input. This application is built using the terminal, thus the screen displays
+ * inputs for rows and columns and calls the appropriate controller to run the use case.
+ */
+public class MazeGeneratorScreen {
     private final MazeGeneratorController mazeGeneratorController;
 
     public MazeGeneratorScreen(MazeGeneratorController controller) {
