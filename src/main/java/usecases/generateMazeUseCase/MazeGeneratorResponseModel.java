@@ -1,4 +1,4 @@
-package generate_maze_use_case;
+package usecases.generateMazeUseCase;
 
 public class MazeGeneratorResponseModel {
 
