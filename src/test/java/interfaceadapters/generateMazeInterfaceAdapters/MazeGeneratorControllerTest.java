@@ -1,7 +1,7 @@
-package interface_adapters;
+package interfaceadapters.generateMazeInterfaceAdapters;
 
 import entities.MazeFactory;
-import generate_maze_use_case.MazeGeneratorInteractor;
+import usecases.generateMazeUseCase.MazeGeneratorInteractor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
