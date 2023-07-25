@@ -1,8 +1,8 @@
-package interface_adapters;
+package interfaceadapters.generateMazeInterfaceAdapters;
 
-import generate_maze_use_case.MazeGeneratorOutputBoundary;
-import generate_maze_use_case.MazeGeneratorResponseModel;
-import generate_maze_use_case.MazeRepresentation;
+import usecases.generateMazeUseCase.MazeGeneratorOutputBoundary;
+import usecases.generateMazeUseCase.MazeGeneratorResponseModel;
+import usecases.generateMazeUseCase.MazeRepresentation;
 
 public class MazePresenter implements MazeGeneratorOutputBoundary {
     @Override
