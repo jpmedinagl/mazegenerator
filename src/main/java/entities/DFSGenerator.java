@@ -2,6 +2,9 @@ package entities;
 
 import java.util.Random;
 
+/**
+ * Specific Generator which generates the usable maze. It generates a maze by using the Depth-First-Search Algorithm.
+ */
 public class DFSGenerator implements Generator {
 
     public void generateMaze(Maze maze) {
@@ -44,7 +47,7 @@ public class DFSGenerator implements Generator {
                 newCol -= 2;
             }
 
-            if (newRow >= 0 && newRow < maze.getRows() && newCol >= 0 && newCol < maze.getColumns() && maze.getCell(newRow, newCol) == 1) {
+            if (cellValid(maze, newRow, newCol)) {
                 maze.setCell(newRow, newCol, 0); // 0 represents the path
 
                 if (direction == 1) {
@@ -62,9 +65,10 @@ public class DFSGenerator implements Generator {
         }
     }
 
-    private int getRandomNumber(int max) {
-        Random random = new Random();
-        return random.nextInt(max);
+    private boolean cellValid(Maze maze, int row, int column) {
+        return row >= 0 && row < maze.getRows() &&
+                column >= 0 && column < maze.getColumns() &&
+                maze.getCell(row, column) == 1;
     }
 
     private void shuffleArray(int[] array) {

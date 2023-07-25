@@ -1,7 +1,10 @@
 package entities;
 
+/**
+ * Facade that holds together the Maze as well as the generator. It delegates the functions of generating a Maze
+ * as well as getting the Maze representation.
+ */
 public class MazeFacade {
-
     private final Maze maze;
     private final Generator generator;
 
