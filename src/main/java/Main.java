@@ -1,8 +1,8 @@
 import entities.MazeFactory;
-import generate_maze_use_case.MazeGeneratorInteractor;
-import interface_adapters.MazeGeneratorController;
-import interface_adapters.MazeGeneratorScreen;
-import interface_adapters.MazePresenter;
+import usecases.generateMazeUseCase.MazeGeneratorInteractor;
+import interfaceadapters.generateMazeInterfaceAdapters.MazeGeneratorController;
+import interfaceadapters.generateMazeInterfaceAdapters.MazeGeneratorScreen;
+import interfaceadapters.generateMazeInterfaceAdapters.MazePresenter;
 
 public class Main {
     public static void main(String[] args) {
