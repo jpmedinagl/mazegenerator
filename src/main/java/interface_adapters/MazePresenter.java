@@ -35,6 +35,6 @@ public class MazePresenter implements MazeGeneratorOutputBoundary {
 
     @Override
     public MazeGeneratorResponseModel prepareFailView(String error) {
-        throw new RuntimeException(error);
+        throw new MazeGenerationFailed(error);
     }
 }

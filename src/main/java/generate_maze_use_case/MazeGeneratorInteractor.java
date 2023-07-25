@@ -15,7 +15,7 @@ public class MazeGeneratorInteractor implements MazeGeneratorInputBoundary{
 
     public MazeGeneratorResponseModel generateMaze(MazeGeneratorRequestModel requestModel) {
         if (requestModel.getRows() < 0 || requestModel.getColumns() < 0) {
-            mazePresenter.prepareFailView("Invalid: Rows or columns are less than zero. ");
+            mazePresenter.prepareFailView("Invalid: Rows or columns are less than zero.");
         }
 
         MazeFacade mazeManager = mazeFactory.create(requestModel.getRows(), requestModel.getColumns());
