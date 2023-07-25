@@ -1,4 +1,4 @@
-package interface_adapters;
+package interfaceadapters.generateMazeInterfaceAdapters;
 
 import java.util.Scanner;
 public class MazeGeneratorScreen {

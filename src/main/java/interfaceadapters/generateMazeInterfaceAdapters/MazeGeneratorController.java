@@ -1,8 +1,8 @@
-package interface_adapters;
+package interfaceadapters.generateMazeInterfaceAdapters;
 
-import generate_maze_use_case.MazeGeneratorInteractor;
-import generate_maze_use_case.MazeGeneratorRequestModel;
-import generate_maze_use_case.MazeGeneratorResponseModel;
+import usecases.generateMazeUseCase.MazeGeneratorInteractor;
+import usecases.generateMazeUseCase.MazeGeneratorRequestModel;
+import usecases.generateMazeUseCase.MazeGeneratorResponseModel;
 
 public class MazeGeneratorController {
     private final MazeGeneratorInteractor mazeGeneratorInteractor;
