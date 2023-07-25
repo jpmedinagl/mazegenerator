@@ -1,5 +1,8 @@
 package interfaceadapters.generateMazeInterfaceAdapters;
 
+import usecases.generateMazeUseCase.MazeGeneratorResponseModel;
+
+import java.sql.SQLOutput;
 import java.util.Scanner;
 public class MazeGeneratorScreen {
 
@@ -18,9 +21,12 @@ public class MazeGeneratorScreen {
         input.close();
 
         try {
-            System.out.println(mazeGeneratorController.generateMaze(rows, columns).getMaze());
+            MazeGeneratorResponseModel responseModel = mazeGeneratorController.generateMaze(rows, columns);
+
+            System.out.println("\nMaze Generated:");
+            System.out.println(responseModel.getMaze());
         } catch(MazeGenerationFailed e) {
-            System.out.println(e.getMessage());
+            System.out.println("\nError: " + e.getMessage());
         }
     }
 }
