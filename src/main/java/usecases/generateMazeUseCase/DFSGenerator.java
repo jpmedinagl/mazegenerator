@@ -1,4 +1,6 @@
-package entities;
+package usecases.generateMazeUseCase;
+
+import entities.Maze;
 
 import java.util.Random;
 

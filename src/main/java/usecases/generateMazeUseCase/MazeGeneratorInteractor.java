@@ -1,6 +1,6 @@
 package usecases.generateMazeUseCase;
 
-import entities.MazeFacade;
+import entities.Maze;
 import entities.MazeFactory;
 
 /**
@@ -10,10 +10,12 @@ import entities.MazeFactory;
 public class MazeGeneratorInteractor implements MazeGeneratorInputBoundary{
     private final MazeGeneratorOutputBoundary mazePresenter;
     private final MazeFactory mazeFactory;
+    private final Generator mazeGenerator;
 
-    public MazeGeneratorInteractor(MazeGeneratorOutputBoundary mazePresenter, MazeFactory mazeFactory) {
+    public MazeGeneratorInteractor(MazeGeneratorOutputBoundary mazePresenter, MazeFactory mazeFactory, Generator generator) {
         this.mazePresenter = mazePresenter;
         this.mazeFactory = mazeFactory;
+        this.mazeGenerator = generator;
     }
 
     public MazeGeneratorResponseModel generateMaze(MazeGeneratorRequestModel requestModel) {
@@ -21,11 +23,15 @@ public class MazeGeneratorInteractor implements MazeGeneratorInputBoundary{
             mazePresenter.prepareFailView("Invalid: Rows or columns are less than zero.");
         }
 
-        MazeFacade mazeManager = mazeFactory.create(requestModel.getRows(), requestModel.getColumns());
+        // MazeFacade mazeManager = mazeFactory.create(requestModel.getRows(), requestModel.getColumns());
 
-        mazeManager.generateMaze();
+        Maze maze = mazeFactory.create(requestModel.getRows(), requestModel.getColumns());
 
-        MazeRepresentation representationModel = new MazeRepresentation(mazeManager.getMazeRepresentation());
+        // mazeManager.generateMaze();
+
+        mazeGenerator.generateMaze(maze);
+
+        MazeRepresentation representationModel = new MazeRepresentation(maze.getMaze());
 
         return mazePresenter.prepareSuccessView(representationModel);
     }
