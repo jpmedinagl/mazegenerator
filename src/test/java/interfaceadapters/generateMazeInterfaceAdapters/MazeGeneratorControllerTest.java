@@ -1,6 +1,7 @@
 package interfaceadapters.generateMazeInterfaceAdapters;
 
 import entities.MazeFactory;
+import usecases.generateMazeUseCase.DFSGenerator;
 import usecases.generateMazeUseCase.MazeGeneratorInteractor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,8 @@ public class MazeGeneratorControllerTest {
     public void setup() {
         MazeFactory mazeManager = new MazeFactory();
         MazePresenter mazePresenter = new MazePresenter();
-        MazeGeneratorInteractor mazeGeneratorInteractor = new MazeGeneratorInteractor(mazePresenter, mazeManager);
+        DFSGenerator mazeGenerator = new DFSGenerator();
+        MazeGeneratorInteractor mazeGeneratorInteractor = new MazeGeneratorInteractor(mazePresenter, mazeManager, mazeGenerator);
         mazeGeneratorController = new MazeGeneratorController(mazeGeneratorInteractor);
     }
 
