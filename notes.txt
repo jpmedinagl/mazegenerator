@@ -2,11 +2,11 @@ Prompts:
 - 2 use cases/user stories: (MazeCreator, user story for use case)
 - 2 program correctness + testing: (test for entities, test for invalid inputs)
 - 1 efficiency (memory and compute): (time complexity of generate maze, memory complexity of display maze)
-- 2 modularity and extensibility: (extensibility,
+- 2 modularity and extensibility: (extensibility, !!!
 - 2 SOLID: (dependency inversion, SOLID violations?)
 - 1 Clean Architecture: (MVC pattern, clean architecture violation)
 - 2 code smells: (presenter knows about entities, possible code smells)
-- 2 design patterns: (1 iterator, 1 facade)
+- 2 design patterns: (1 iterator, 1 factory, 1 strategy, 1 facade)
 - 1 accessibility: (accessibility concerns)
 - 1 ethics:
 - 2 new features/functionality: (maze solver, maze difficulty levels)
@@ -15,7 +15,7 @@ Criteria:
 - 1 - length (<1K lines)
 - 1 - documentation (a little bit)
 - 1 - testing (a little bit)
-- 2 - design patterns (2) (iterator, facade)
+- 2 - design patterns (2) (iterator, factory, strategy)
 - 1 - SOLID compliance (best effort)
 - 1 - Clean architecture compliance (best effort)
 - 1 - avoid code smells (best effort)
