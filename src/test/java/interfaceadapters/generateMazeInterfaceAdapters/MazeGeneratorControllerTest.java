@@ -15,7 +15,8 @@ public class MazeGeneratorControllerTest {
         MazeFactory mazeManager = new MazeFactory();
         MazePresenter mazePresenter = new MazePresenter();
         DFSGenerator mazeGenerator = new DFSGenerator();
-        MazeGeneratorInteractor mazeGeneratorInteractor = new MazeGeneratorInteractor(mazePresenter, mazeManager, mazeGenerator);
+        MazeGeneratorInteractor mazeGeneratorInteractor = new MazeGeneratorInteractor(mazePresenter, mazeManager,
+                mazeGenerator);
         mazeGeneratorController = new MazeGeneratorController(mazeGeneratorInteractor);
     }
 
