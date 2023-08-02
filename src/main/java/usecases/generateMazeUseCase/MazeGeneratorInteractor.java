@@ -12,6 +12,7 @@ public class MazeGeneratorInteractor implements MazeGeneratorInputBoundary{
     private final MazeGeneratorOutputBoundary mazePresenter;
     private final MazeFactory mazeFactory;
     private Generator mazeGenerator;
+    private Maze maze;
 
     public MazeGeneratorInteractor(MazeGeneratorOutputBoundary mazePresenter, MazeFactory mazeFactory, Generator generator) {
         this.mazePresenter = mazePresenter;
@@ -23,14 +24,18 @@ public class MazeGeneratorInteractor implements MazeGeneratorInputBoundary{
         this.mazeGenerator = generator;
     }
 
+    public void generatorGenerateMaze() {
+        mazeGenerator.generateMaze(maze);
+    }
+
     public MazeGeneratorResponseModel generateMaze(MazeGeneratorRequestModel requestModel) {
         if (requestModel.getRows() <= 0 || requestModel.getColumns() <= 0) {
             mazePresenter.prepareFailView("Invalid: Rows or columns are less than zero.");
         }
 
-        Maze maze = mazeFactory.create(requestModel.getRows(), requestModel.getColumns());
+        maze = mazeFactory.create(requestModel.getRows(), requestModel.getColumns());
 
-        mazeGenerator.generateMaze(maze);
+        generatorGenerateMaze();
 
         MazeRepresentation representationModel = new MazeRepresentation(maze.getMaze());
         return mazePresenter.prepareSuccessView(representationModel);
