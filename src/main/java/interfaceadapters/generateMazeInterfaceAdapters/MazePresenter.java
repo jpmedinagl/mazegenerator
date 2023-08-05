@@ -1,14 +1,29 @@
 package interfaceadapters.generateMazeInterfaceAdapters;
 
-import usecases.generateMazeUseCase.MazeGeneratorOutputBoundary;
-import usecases.generateMazeUseCase.MazeGeneratorResponseModel;
-import usecases.generateMazeUseCase.MazeRepresentation;
+import entities.MazeFactory;
+import usecases.generateMazeUseCase.*;
 
 /**
  * Presenter which builds a maze representation model from the maze representation such that it is able
- * to present this to the user. Throws a MazeGenerationFailed if there is invalid input.
+ * to present this to the user. Throws a MazeGenerationFailed if there is invalid input. There are two constructors,
+ * one that has a default Maze Generator (DFSGenerator), and another that builds a presenter from a specified generator.
  */
 public class MazePresenter implements MazeGeneratorOutputBoundary {
+    private final MazeGeneratorController generatorController;
+
+    public MazePresenter() {
+        this(new DFSGenerator());
+    }
+
+    public MazePresenter(Generator generator) {
+        MazeFactory mazeFactory = new MazeFactory();
+        MazeGeneratorInteractor generatorInteractor = new MazeGeneratorInteractor(this, mazeFactory, generator);
+        generatorController = new MazeGeneratorController(generatorInteractor);
+    }
+
+    public MazeGeneratorController getGeneratorController() {
+        return this.generatorController;
+    }
 
     @Override
     public MazeGeneratorResponseModel prepareSuccessView(MazeRepresentation mazeRepresentation) {

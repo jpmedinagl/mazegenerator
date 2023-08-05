@@ -1,19 +1,31 @@
 package usecases.generateMazeUseCase;
 
-import entities.MazeFacade;
+import entities.Maze;
 import entities.MazeFactory;
 
 /**
  * Interactor that is responsible for executing the use case. If the inputs are valid it creates
- * a mazeManager that generates the Maze.
+ * a mazeManager that generates the Maze. Uses a strategy design pattern with the generator as it calls the
+ * generator to generate a maze. Different types of generators can generate the maze differently.
  */
 public class MazeGeneratorInteractor implements MazeGeneratorInputBoundary{
     private final MazeGeneratorOutputBoundary mazePresenter;
     private final MazeFactory mazeFactory;
+    private Generator mazeGenerator;
+    private Maze maze;
 
-    public MazeGeneratorInteractor(MazeGeneratorOutputBoundary mazePresenter, MazeFactory mazeFactory) {
+    public MazeGeneratorInteractor(MazeGeneratorOutputBoundary mazePresenter, MazeFactory mazeFactory, Generator generator) {
         this.mazePresenter = mazePresenter;
         this.mazeFactory = mazeFactory;
+        setMazeGenerator(generator);
+    }
+
+    public void setMazeGenerator(Generator generator) {
+        this.mazeGenerator = generator;
+    }
+
+    public void generatorGenerateMaze() {
+        mazeGenerator.generateMaze(maze);
     }
 
     public MazeGeneratorResponseModel generateMaze(MazeGeneratorRequestModel requestModel) {
@@ -21,12 +33,11 @@ public class MazeGeneratorInteractor implements MazeGeneratorInputBoundary{
             mazePresenter.prepareFailView("Invalid: Rows or columns are less than zero.");
         }
 
-        MazeFacade mazeManager = mazeFactory.create(requestModel.getRows(), requestModel.getColumns());
+        maze = mazeFactory.create(requestModel.getRows(), requestModel.getColumns());
 
-        mazeManager.generateMaze();
+        generatorGenerateMaze();
 
-        MazeRepresentation representationModel = new MazeRepresentation(mazeManager.getMazeRepresentation());
-
+        MazeRepresentation representationModel = new MazeRepresentation(maze.getMaze());
         return mazePresenter.prepareSuccessView(representationModel);
     }
 }

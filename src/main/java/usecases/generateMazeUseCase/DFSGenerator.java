@@ -1,4 +1,6 @@
-package entities;
+package usecases.generateMazeUseCase;
+
+import entities.Maze;
 
 import java.util.Random;
 
@@ -6,7 +8,6 @@ import java.util.Random;
  * Specific Generator which generates the usable maze. It generates a maze by using the Depth-First-Search Algorithm.
  */
 public class DFSGenerator implements Generator {
-
     public void generateMaze(Maze maze) {
         int rows = maze.getRows();
         int columns = maze.getColumns();
